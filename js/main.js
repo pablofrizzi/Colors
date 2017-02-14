@@ -1,10 +1,4 @@
-var mainColor = document.body,
-    colorOne = document.getElementById(colorOne),
-    colorTwo = document.getElementById(colorTwo),
-    colorThree = document.getElementById(colorThree),
-    colorFour = document.getElementById(colorFour);
-
-
+var mainColor = document.body;
 
 var menuToggle = function() {
   $('.button').click(function() {
@@ -12,21 +6,46 @@ var menuToggle = function() {
   });
 };
 
+var colorsArr = [
+  {
+    id: "colorZero",
+    color: "white"
+  },
+  {
+    id: "colorOne",
+    color: "#C56FE5"
+  },
+  {
+    id: "colorTwo",
+    color: "#A9F0E2"
+  },
+  {
+    id: "colorThree",
+    color: "#F06381"
+  },
+  {
+    id: "colorFour",
+    color: "#5BA0E5"
+  },
+  {
+    id: "colorFive",
+    color: "gold"
+  }
+];
+
+var colorList = $('#colorList');
+
 var colorChanger = function() {
-  $('#colorZero').click(function() {
-    mainColor.style.background = "white";
-  });
-  $('#colorOne').click(function() {
-    mainColor.style.background = "#C56FE5";
-  });
-  $('#colorTwo').click(function() {
-    mainColor.style.background = "#A9F0E2";
-  });
-  $('#colorThree').click(function() {
-    mainColor.style.background = "#F06381";
-  });
-  $('#colorFour').click(function() {
-    mainColor.style.background = "#5BA0E5";
+  colorsArr.forEach(function(color){
+    var element = $('<li>')
+      .addClass('colorDot')
+      .attr('id', color.id)
+      .css('background', color.color)
+      .click(function(){
+        mainColor.style.background = color.color;
+      });
+
+    colorList.append(element);
   });
 }
 

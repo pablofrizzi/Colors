@@ -21,10 +21,6 @@ body {
   float: left;
 }
 
-/*.colorPickerClicked {
-  display: inline-block;
-}*/
-
 .colorPicker ul {
   list-style-type: none;
   padding: 0;
@@ -43,26 +39,6 @@ body {
   transition: all 0.3s;
   transform: scale(1.1);
   cursor: pointer;
-}
-
-#colorZero {
-  background: white;
-}
-
-#colorOne {
-  background: #C56FE5;
-}
-
-#colorTwo {
-  background: #A9F0E2;
-}
-
-#colorThree {
-  background: #F06381;
-}
-
-#colorFour {
-  background: #5BA0E5;
 }
 
 .text {
