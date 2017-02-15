@@ -1,5 +1,3 @@
-var mainColor = document.body;
-
 var menuToggle = function() {
   $('.button').click(function() {
     $('.colorPicker').toggle();
@@ -32,21 +30,28 @@ var colorsArr = [
 
 var colorList = $('#colorList');
 
-var colorChanger = function() {
+colorList.on('click', function(e){
+  if (e.target !== e.currentTarget) {
+    document.body.style.background = e.target.style.background;
+  }
+  e.stopPropagation();
+});
+
+var appendColor = function() {
   colorsArr.forEach(function(color){
     var element = $('<li>')
       .addClass('colorDot')
-      .css('background', color.color)
-      .click(function(){
-        mainColor.style.background = color.color;
-      });
+      .css('background', color.color);
+
     colorList.append(element);
   });
 }
 
 function main() {
   menuToggle();
-  colorChanger();
+  appendColor();
 }
+
+
 
 $(document).ready(main);
