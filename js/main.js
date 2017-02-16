@@ -56,8 +56,5 @@ var colorsArr = [
   },
   {
     color: "#1abc9c"
-  },
-  {
-    color: ""
   }
 ];
