@@ -1,26 +1,25 @@
 var colorsArr = ["#FFF", "#C56FE5", "#A9F0E2", "#F06381", "#5BA0E5", "#FFD700", "#1abc9c"];
-
-var menuToggle = function() {
-  $('.button').click(function() {
-    $('.colorPicker').toggle();
-  });
-};
-
 var colorList = $('#colorList');
+var colorToggle = $('.button');
 
-var DOMEvents = function(e) {
+function colorToggleClickEventHandler() {
+  $('.colorPicker').toggle();
+}
+
+function colorListClickEventHandler(e) {
   if (e.target !== e.currentTarget) {
     document.body.style.background = e.target.style.background;
   }
   e.stopPropagation();
 }
 
-var colorChanger = function() {
-  colorList.on('click', DOMEvents)
+function registerEventHandlers() {
+  colorToggle.on('click', colorToggleClickEventHandler);
+  colorList.on('click', colorListClickEventHandler);
 }
 
-var appendColor = function() {
-  colorsArr.forEach(function(color){
+function renderMenuElements() {
+  colorsArr.forEach(function(color) {
     var element = $('<li>')
       .addClass('colorDot')
       .css('background', color);
@@ -30,9 +29,8 @@ var appendColor = function() {
 }
 
 function main() {
-  menuToggle();
-  appendColor();
-  colorChanger();
+  renderMenuElements();
+  registerEventHandlers();
 }
 
 $(document).ready(main);
