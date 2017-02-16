@@ -4,6 +4,37 @@ var menuToggle = function() {
   });
 };
 
+var colorList = $('#colorList');
+
+var DOMEvents = function(e) {
+  if (e.target !== e.currentTarget) {
+    document.body.style.background = e.target.style.background;
+  }
+  e.stopPropagation();
+}
+
+var colorChanger = function() {
+  colorList.on('click', DOMEvents)
+}
+
+var appendColor = function() {
+  colorsArr.forEach(function(color){
+    var element = $('<li>')
+      .addClass('colorDot')
+      .css('background', color.color);
+
+    colorList.append(element);
+  });
+}
+
+function main() {
+  menuToggle();
+  appendColor();
+  colorChanger();
+}
+
+$(document).ready(main);
+
 var colorsArr = [
   {
     color: "white"
@@ -25,33 +56,8 @@ var colorsArr = [
   },
   {
     color: "#1abc9c"
+  },
+  {
+    color: ""
   }
 ];
-
-var colorList = $('#colorList');
-
-colorList.on('click', function(e){
-  if (e.target !== e.currentTarget) {
-    document.body.style.background = e.target.style.background;
-  }
-  e.stopPropagation();
-});
-
-var appendColor = function() {
-  colorsArr.forEach(function(color){
-    var element = $('<li>')
-      .addClass('colorDot')
-      .css('background', color.color);
-
-    colorList.append(element);
-  });
-}
-
-function main() {
-  menuToggle();
-  appendColor();
-}
-
-
-
-$(document).ready(main);
