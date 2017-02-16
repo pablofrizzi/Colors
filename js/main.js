@@ -1,4 +1,4 @@
-var colorsArr = ["#FFF", "#C56FE5", "#A9F0E2", "#F06381", "#5BA0E5", "#FFD700", "#1abc9c"];
+var colorsArr = ['#FFF', '#C56FE5', '#A9F0E2', '#F06381', '#5BA0E5', '#FFD700', '#1abc9c'];
 var colorList = $('#colorList');
 var colorToggle = $('.button');
 
